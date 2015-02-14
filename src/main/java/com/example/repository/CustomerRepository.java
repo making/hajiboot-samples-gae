@@ -35,7 +35,8 @@ public class CustomerRepository {
             entity = datastoreService.get(key);
         } catch (EntityNotFoundException ignored) {
         }
-        return fromEntity(entity);
+
+        return entity != null ? fromEntity(entity) : null;
     }
 
     public Customer save(Customer customer) {
